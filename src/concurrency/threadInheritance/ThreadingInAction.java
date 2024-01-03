@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Let's put it all together and see how threading works in our first multi-threaded program!
+ * Let's put it all together and see how threading works in our first multithreaded program!
  *
  * @author BCIT
  * @version 2024 (wow already?!)
@@ -124,6 +124,7 @@ public final class ThreadingInAction {
                 try {
                     Thread.sleep(ONE_SECOND);
                 } catch (InterruptedException e) {
+                    System.out.println("Under what circumstance would this line be printed?");
                 }
                 System.out.println(i);
             }
