@@ -3,21 +3,16 @@ package concurrency.threadCoordination;
 import java.math.BigInteger;
 
 /**
- * <p>
- * How can we use this in a non-trivial way? What if we have a huge computation that's preventing anything else from
- * happening? We can interrupt the thread and end the program gracefully.
- * </p>
- * <p>
- * Important: if a method does not respond to the interrupt signal by throwing an InterruptException, i.e.,
- * Thread.sleep(), then we have to check the interrupted status of the thread manually.
- *</p>
+ * A Daemon (pronounced DAY-mon) thread is a thread that runs in the background and does not prevent the JVM from
+ * exiting when the program finishes. If the JVM has only daemon threads remaining when we reach the end of the
+ * main method, the program stops the threads and ends. Kaput!
  *
  * @author BCIT
  * @version 2024
  */
-public final class Interrupt {
+public final class DaemonThreadDemo {
 
-    private Interrupt() { }
+    private DaemonThreadDemo() { }
 
     /**
      * Drives the program.
@@ -25,14 +20,8 @@ public final class Interrupt {
      */
     public static void main(final String[] args) {
         Thread thread = new Thread(new LongComputationTask(new BigInteger("2024"), new BigInteger("9999999")));
+        // thread.setDaemon(true); // What happens when we uncomment this line of code?
         thread.start();
-        final int millisecond = 1;
-        try {
-            Thread.sleep(millisecond);
-        } catch (InterruptedException e) {
-            System.out.println("This thread's sleep was interrupted!");
-        }
-        // thread.interrupt(); // What happens when we uncomment this line of code?
     }
 
     private static class LongComputationTask implements Runnable {

@@ -19,4 +19,6 @@ We often want to stop threads for one of the following reasons:
 
 1. BlockingProblem.java
 2. BlockingSolution.java
-3. Interrupt.java.
+3. Interrupt.java
+4. DaemonThreadDemo.java
+5. JoiningThreads.java
