@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * How might we organize a collection of Threads to be executed concurrently?
+ * How might we organize a collection of Threads to be executed concurrently? Is the order of initialization also
+ * the order of execution? Let's find out!
  *
  * @author BCIT
  * @version 2024
@@ -35,5 +36,25 @@ public final class MultiExecutor {
         for (Thread thread : threads) {
             thread.start();
         }
+    }
+
+    /**
+     * Drives the program.
+     * @param args unused
+     */
+    public static void main(final String[] args) {
+        MultiExecutor multiExecutor = new MultiExecutor(List.of(
+                () -> System.out.println("Hello from task 1"),
+                () -> System.out.println("Hello from task 2"),
+                () -> System.out.println("Hello from task 3"),
+                () -> System.out.println("Hello from task 4"),
+                () -> System.out.println("Hello from task 5"),
+                () -> System.out.println("Hello from task 6"),
+                () -> System.out.println("Hello from task 7"),
+                () -> System.out.println("Hello from task 8"),
+                () -> System.out.println("Hello from task 9"),
+                () -> System.out.println("Hello from task 10")
+        ));
+        multiExecutor.executeAll();
     }
 }
