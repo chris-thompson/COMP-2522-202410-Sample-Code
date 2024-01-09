@@ -3,12 +3,12 @@ package concurrency.threadCoordination;
 import java.math.BigInteger;
 
 /**
- * <p>We can use the join() method to wait for a thread to finish. That is, it waits for the thread's run method
+ * <p>We can use the join() method to wait for a thread to finish. That is, we wait for the thread's run method
  * to complete. We can also specify a timeout value for the join() method. If the thread does not finish within
  * the specified timeout, the join() method returns and the program continues.
  * </p>
  * <p>
- * This lets us run tasks in parallel and then safely and correctly aggregate the results. Neat!
+ * This lets us run tasks in parallel and then safely and correctly aggregate the results in main. Neat!
  * </p>
  *
  * @author BCIT
