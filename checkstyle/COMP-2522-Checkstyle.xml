@@ -93,10 +93,6 @@
         <!-- Checks that method names conform to a specified pattern. -->
         <module name="MethodName"/>
 
-        <!-- Checks that package names conform to a specified pattern. -->
-        <module name="PackageName">
-            <property name="format" value="^[a-e][a-z0-9]*(\.[a-zA-Z_][a-zA-Z0-9_]*)*$"/>
-        </module>
 
 		<!-- Checks that method parameter names conform to a specified pattern. -->
         <module name="ParameterName"/>
@@ -445,4 +441,3 @@
         <property name="message" value="Line has trailing spaces."/>
     </module>
 </module>
-
