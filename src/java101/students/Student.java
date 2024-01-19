@@ -17,8 +17,8 @@ public class Student {
     /**
      * Constructs a Student object that contains the specified values.
      *
-     * @param firstName  a String representing the usefulclasses name
-     * @param lastName   a String representing the last name
+     * @param firstName  a String representing the usefulclasses java101.name
+     * @param lastName   a String representing the last java101.name
      * @param homeAddress   an Address object containing the home address
      * @param schoolAddress an Address object containing the school address
      */

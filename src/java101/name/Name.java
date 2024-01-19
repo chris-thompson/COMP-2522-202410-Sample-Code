@@ -1,4 +1,4 @@
-package name;
+package java101.name;
 
 /**
  * Name represents a three-part Name.
@@ -9,17 +9,17 @@ package name;
 public class Name {
 
     /**
-     * Default first name.
+     * Default first java101.name.
      */
     public static final String DEFAULT_FIRST = "Boaty";
 
     /**
-     * Default middle name.
+     * Default middle java101.name.
      */
     public static final String DEFAULT_MIDDLE = "B";
 
     /**
-     * Default last name.
+     * Default last java101.name.
      */
     public static final String DEFAULT_LAST = "McBoatface";
 
@@ -59,7 +59,7 @@ public class Name {
     }
 
     /**
-     * Returns the first name.
+     * Returns the first java101.name.
      *
      * @return first as a String
      */
@@ -68,7 +68,7 @@ public class Name {
     }
 
     /**
-     * Sets the first name.
+     * Sets the first java101.name.
      *
      * @param first the  to set
      */
@@ -80,7 +80,7 @@ public class Name {
     }
 
     /**
-     * Returns the middle name.
+     * Returns the middle java101.name.
      *
      * @return middle
      */
@@ -89,7 +89,7 @@ public class Name {
     }
 
     /**
-     * Sets the middle name.
+     * Sets the middle java101.name.
      *
      * @param middle the middle to set
      */
@@ -101,7 +101,7 @@ public class Name {
     }
 
     /**
-     * Returns the last name.
+     * Returns the last java101.name.
      *
      * @return last
      */
@@ -110,7 +110,7 @@ public class Name {
     }
 
     /**
-     * Sets the last name.
+     * Sets the last java101.name.
      *
      * @param last the last to set
      */
@@ -168,7 +168,7 @@ public class Name {
     }
 
     /**
-     * Returns true if the specified String is the first name.
+     * Returns true if the specified String is the first java101.name.
      *
      * @param name to compare
      * @return true if the same, else false
@@ -186,12 +186,12 @@ public class Name {
     @Override
     public String toString() {
         return "Name{" + "first='"
-                + first + '\''
+                + getFirst() + '\''
                 + ", middle='"
-                + middle
+                + getMiddle()
                 + '\''
                 + ", last='"
-                + last + '\''
+                + getLast() + '\''
                 + '}';
     }
 }

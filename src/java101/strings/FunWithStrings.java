@@ -22,7 +22,7 @@ public final class FunWithStrings {
     public static void main(final String[] args) {
 
         final Scanner titleScanner = new Scanner(System.in);
-        System.out.print("Enter the name of your favourite book: ");
+        System.out.print("Enter the java101.name of your favourite book: ");
 
         final String userInput = titleScanner.nextLine();
         // userInput = titleScanner.next();

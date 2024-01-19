@@ -149,9 +149,9 @@ public class Cube {
      */
     @Override
     public String toString() {
-        return "Cube [edgeLength=" + edgeLength + ", xCoordinate="
-                + xCoordinate + ", yCoordinate=" + yCoordinate
-                + ", zCoordinate=" + zCoordinate + "]";
+        return "Cube [edgeLength=" + getEdgeLength() + ", xCoordinate="
+                + getxCoordinate() + ", yCoordinate=" + getyCoordinate()
+                + ", zCoordinate=" + getzCoordinate() + "]";
     }
 
 }

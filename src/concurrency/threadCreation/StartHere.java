@@ -2,7 +2,7 @@ package concurrency.threadCreation;
 
 /**
  * <p>
- * Creates a new thread and prints its name and priority.
+ * Creates a new thread and prints its java101.name and priority.
  * </p>
  * <p>
  * To create a thread, we must instantiate a thread and pass it a Runnable object.

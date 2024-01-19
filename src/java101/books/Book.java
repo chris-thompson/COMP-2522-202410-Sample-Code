@@ -9,7 +9,7 @@ package java101.books;
 public class Book {
 
     /**
-     * Default author name.
+     * Default author java101.name.
      */
     public static final String DEFAULT_AUTHOR = "Jane Doe";
 
@@ -93,9 +93,9 @@ public class Book {
     public String toString() {
         return "Book{"
                 + "author='"
-                + author + '\''
-                + ", title='" + title + '\''
-                + ", pages=" + pages + '}';
+                + getAuthor() + '\''
+                + ", title='" + getTitle() + '\''
+                + ", pages=" + getPages() + '}';
     }
 
     /**

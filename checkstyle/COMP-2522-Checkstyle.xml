@@ -106,7 +106,7 @@
         <!-- Checks that there are no import statements that use the * notation.
              Rationale: Importing all classes from a package or static members from
              a class leads to tight coupling between packages or classes and might
-             lead to problems when a new version of a library introduces name clashes. -->
+             lead to problems when a new version of a library introduces java101.name clashes. -->
         <module name="AvoidStarImport"/>
 
         <!-- Checks for imports from a set of illegal packages, i.a., sun.* LMAO -->
@@ -396,8 +396,8 @@
              twice, to the same value. Java initializes each instance variable to its
              default value (0 or null) before performing any initialization specified in
              the code. So there is a minor inefficiency. -->
-<!--        <module name="ExplicitInitialization">-->
-<!--            <property name="onlyObjectReferences" value="true"/>-->
+<!--        <module java101.name="ExplicitInitialization">-->
+<!--            <property java101.name="onlyObjectReferences" value="true"/>-->
 <!--        </module>-->
 
         <!-- Check that the default is after all the cases in a switch statement. -->

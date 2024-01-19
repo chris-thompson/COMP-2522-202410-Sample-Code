@@ -84,6 +84,6 @@ public class Account {
      */
     public String toString() {
         final NumberFormat fmt = NumberFormat.getCurrencyInstance();
-        return (acctNumber + "\t" + identifier + "\t" + fmt.format(balance));
+        return (acctNumber + "\t" + identifier + "\t" + fmt.format(getBalance()));
     }
 }

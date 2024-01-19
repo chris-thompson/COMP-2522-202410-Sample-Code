@@ -62,7 +62,7 @@ public class Die {
      */
     @Override
     public String toString() {
-        return "Die{" + "faceValue=" + this.faceValue + "}";
+        return "Die{" + "faceValue=" + getFaceValue() + "}";
     }
 
     /**

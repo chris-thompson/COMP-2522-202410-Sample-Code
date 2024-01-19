@@ -132,8 +132,8 @@ public class Sphere {
      */
     @Override
     public String toString() {
-        return "Sphere [radius=" + radius + ", xCoordinate=" + xCoordinate
-                + ", yCoordinate=" + yCoordinate + ", zCoordinate="
-                + zCoordinate + "]";
+        return "Sphere [radius=" + getRadius() + ", xCoordinate=" + getxCoordinate()
+                + ", yCoordinate=" + getyCoordinate() + ", zCoordinate="
+                + getzCoordinate() + "]";
     }
 }

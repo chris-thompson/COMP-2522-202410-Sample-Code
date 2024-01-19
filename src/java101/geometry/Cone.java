@@ -97,7 +97,7 @@ public class Cone {
      */
     @Override
     public String toString() {
-        return "Cone [radius=" + radius + ", height=" + height + "]";
+        return "Cone [radius=" + getRadius() + ", height=" + getHeight() + "]";
     }
 
 }
