@@ -1,5 +1,7 @@
 package java101.variablelength;
 
+import java.util.Arrays;
+
 /**
  * Demonstrates the use of variable length parameter lists.
  *
@@ -7,7 +9,7 @@ package java101.variablelength;
  * @author BCIT
  * @version 2024
  */
-public class Family {
+public final class Family {
     /**
      * Names of family members.
      */
@@ -23,16 +25,16 @@ public class Family {
         members = names;
     }
 
-    /**
-     * Returns a description of this Family as a String.
-     *
-     * @return toString description
-     */
+    @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        for (String name : members) {
-            result.append(name).append("\n");
+        final StringBuilder sb;
+        sb = new StringBuilder("Family{");
+        if (members == null) {
+            sb.append("members=").append("null");
+        } else {
+            sb.append("members=").append(Arrays.asList(members));
         }
-        return result.toString();
+        sb.append('}');
+        return sb.toString();
     }
 }

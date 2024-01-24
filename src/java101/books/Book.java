@@ -6,10 +6,10 @@ package java101.books;
  * @author BCIT
  * @version 2024
  */
-public class Book {
+public final class Book {
 
     /**
-     * Default author java101.name.
+     * Default author name.
      */
     public static final String DEFAULT_AUTHOR = "Jane Doe";
 
@@ -98,6 +98,53 @@ public class Book {
                 + ", pages=" + getPages() + '}';
     }
 
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        Book book = (Book) object;
+
+        if (getPages() != book.getPages()) {
+            return false;
+        }
+        if (getAuthor() != null) {
+            if (!getAuthor().equals(book.getAuthor())) {
+                return false;
+            }
+        } else {
+            if (book.getAuthor() != null) {
+                return false;
+            }
+        }
+        if (getTitle() != null) {
+            return getTitle().equals(book.getTitle());
+        }
+        return book.getTitle() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        if (getAuthor() != null) {
+            result = getAuthor().hashCode();
+        } else {
+            result = 0;
+        }
+        final int usefulPrime = 31;
+        if (getTitle() != null) {
+            result = usefulPrime * result + getTitle().hashCode();
+        } else {
+            result = usefulPrime * result;
+        }
+        result = usefulPrime * result + getPages();
+        return result;
+    }
+
     /**
      * Drives the program.
      *
@@ -108,5 +155,11 @@ public class Book {
         for (int i = 0; i < quantity; ++i) {
             System.out.println(new Book());
         }
+
+        final int decentNovelLength = 300;
+        Book allParameters = new Book("Jane Doe", "The Great Canadian Novel", decentNovelLength);
+        Book twoParameters = new Book("Jane Doe", "The Great Canadian Novel");
+        System.out.println(allParameters);
+        System.out.println(twoParameters);
     }
 }

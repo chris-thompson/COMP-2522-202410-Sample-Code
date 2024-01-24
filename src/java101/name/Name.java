@@ -6,20 +6,20 @@ package java101.name;
  * @author BCIT
  * @version 2024
  */
-public class Name {
+public final class Name {
 
     /**
-     * Default first java101.name.
+     * Default first name.
      */
     public static final String DEFAULT_FIRST = "Boaty";
 
     /**
-     * Default middle java101.name.
+     * Default middle name.
      */
     public static final String DEFAULT_MIDDLE = "B";
 
     /**
-     * Default last java101.name.
+     * Default last name.
      */
     public static final String DEFAULT_LAST = "McBoatface";
 
@@ -59,7 +59,7 @@ public class Name {
     }
 
     /**
-     * Returns the first java101.name.
+     * Returns the first name.
      *
      * @return first as a String
      */
@@ -68,9 +68,9 @@ public class Name {
     }
 
     /**
-     * Sets the first java101.name.
+     * Sets the first name.
      *
-     * @param first the  to set
+     * @param first the name to set
      */
     public void setFirst(final String first) {
         if (first != null && !first.trim().isEmpty()) {
@@ -80,16 +80,16 @@ public class Name {
     }
 
     /**
-     * Returns the middle java101.name.
+     * Returns the middle name.
      *
-     * @return middle
+     * @return middle as a String
      */
     public String getMiddle() {
         return middle;
     }
 
     /**
-     * Sets the middle java101.name.
+     * Sets the middle name.
      *
      * @param middle the middle to set
      */
@@ -101,16 +101,16 @@ public class Name {
     }
 
     /**
-     * Returns the last java101.name.
+     * Returns the last name.
      *
-     * @return last
+     * @return last as a String
      */
     public String getLast() {
         return last;
     }
 
     /**
-     * Sets the last java101.name.
+     * Sets the last name.
      *
      * @param last the last to set
      */
@@ -124,7 +124,7 @@ public class Name {
     /**
      * Returns the length of this Name.
      *
-     * @return length
+     * @return length as an int
      */
     public int getLength() {
         return first.length() + middle.length() + last.length();
@@ -133,7 +133,7 @@ public class Name {
     /**
      * Returns this Name as three uppercase initials.
      *
-     * @return initials
+     * @return initials as a String
      */
     public String getInitials() {
         return first.substring(0, 1).toUpperCase()
@@ -144,9 +144,9 @@ public class Name {
     /**
      * Returns the specified character in this Name.  If the
      * index exceeds the length of the String, '@' is
-     * returned instead.  Index must be between [0, length() - 1]
+     * returned instead.  Index must be in the range [0, length() - 1].
      *
-     * @param index the nth character to acquire
+     * @param index the nth character to acquire as an int
      * @return index character, or @ if index > length
      */
     public char getCharacter(final int index) {
@@ -168,7 +168,7 @@ public class Name {
     }
 
     /**
-     * Returns true if the specified String is the first java101.name.
+     * Returns true if the specified String is the first name.
      *
      * @param name to compare
      * @return true if the same, else false
@@ -177,21 +177,71 @@ public class Name {
         return first.equals(name);
     }
 
-
-    /**
-     * Returns a String representation of this Name.
-     *
-     * @return Name as a String with the components labeled.
-     */
     @Override
     public String toString() {
-        return "Name{" + "first='"
-                + getFirst() + '\''
-                + ", middle='"
-                + getMiddle()
-                + '\''
-                + ", last='"
-                + getLast() + '\''
-                + '}';
+        final StringBuilder sb;
+        sb = new StringBuilder("Name{");
+        sb.append("first='").append(getFirst()).append('\'');
+        sb.append(", middle='").append(getMiddle()).append('\'');
+        sb.append(", last='").append(getLast()).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        Name name = (Name) object;
+
+        if (getFirst() != null) {
+            if (!getFirst().equals(name.getFirst())) {
+                return false;
+            }
+        } else {
+            if (name.getFirst() != null) {
+                return false;
+            }
+        }
+        if (getMiddle() != null) {
+            if (!getMiddle().equals(name.getMiddle())) {
+                return false;
+            }
+        } else {
+            if (name.getMiddle() != null) {
+                return false;
+            }
+        }
+        if (getLast() != null) {
+            return getLast().equals(name.getLast());
+        }
+        return name.getLast() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        if (getFirst() != null) {
+            result = getFirst().hashCode();
+        } else {
+            result = 0;
+        }
+        final int usefulPrime = 31;
+        if (getMiddle() != null) {
+            result = usefulPrime * result + getMiddle().hashCode();
+        } else {
+            result = usefulPrime * result;
+        }
+        if (getLast() != null) {
+            result = usefulPrime * result + getLast().hashCode();
+        } else {
+            result = usefulPrime * result;
+        }
+        return result;
     }
 }

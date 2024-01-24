@@ -6,13 +6,7 @@ package java101.geometry;
  * @author BCIT
  * @version 2024
  */
-public class Sphere {
-
-    private static final double SQUARED = 2.0;
-    private static final double CUBED = 3.0;
-
-    private static final double DIVISOR = 4.0 / 3.0;
-
+public final class Sphere {
     private double radius;
     private double xCoordinate;
     private double yCoordinate;
@@ -22,9 +16,9 @@ public class Sphere {
      * Constructs an object of type Sphere.
      *
      * @param radius of the Sphere
-     * @param x      the x Cartesian coordinate of the centre
-     * @param y      the y Cartesian coordinate of the centre
-     * @param z      the z Cartesian coordinate of the centre
+     * @param x the x Cartesian coordinate of the centre as a double
+     * @param y the y Cartesian coordinate of the centre as a double
+     * @param z the z Cartesian coordinate of the centre as a double
      */
     public Sphere(final double radius, final double x, final double y, final double z) {
         this.radius = radius;
@@ -36,7 +30,7 @@ public class Sphere {
     /**
      * Returns the radius for this Sphere.
      *
-     * @return radius
+     * @return radius as a double
      */
     public double getRadius() {
         return radius;
@@ -45,7 +39,7 @@ public class Sphere {
     /**
      * Sets the radius for this Sphere.
      *
-     * @param radius the radius to set
+     * @param radius the radius to set as a double
      */
     public void setRadius(final double radius) {
         this.radius = radius;
@@ -54,7 +48,7 @@ public class Sphere {
     /**
      * Returns the xCoordinate for this Sphere.
      *
-     * @return xCoordinate
+     * @return xCoordinate as a double
      */
     public double getxCoordinate() {
         return xCoordinate;
@@ -63,7 +57,7 @@ public class Sphere {
     /**
      * Sets the xCoordinate for this Sphere.
      *
-     * @param xCoordinate the xCoordinate to set
+     * @param xCoordinate the xCoordinate to set as a double
      */
     public void setxCoordinate(final double xCoordinate) {
         this.xCoordinate = xCoordinate;
@@ -72,7 +66,7 @@ public class Sphere {
     /**
      * Returns the yCoordinate for this Sphere.
      *
-     * @return yCoordinate
+     * @return yCoordinate as a double
      */
     public double getyCoordinate() {
         return yCoordinate;
@@ -81,7 +75,7 @@ public class Sphere {
     /**
      * Sets the yCoordinate for this Sphere.
      *
-     * @param yCoordinate the yCoordinate to set
+     * @param yCoordinate the yCoordinate to set as a double
      */
     public void setyCoordinate(final double yCoordinate) {
         this.yCoordinate = yCoordinate;
@@ -90,7 +84,7 @@ public class Sphere {
     /**
      * Returns the zCoordinate for this Sphere.
      *
-     * @return zCoordinate
+     * @return zCoordinate as a double
      */
     public double getzCoordinate() {
         return zCoordinate;
@@ -99,7 +93,7 @@ public class Sphere {
     /**
      * Sets the zCoordinate for this Sphere.
      *
-     * @param zCoordinate the zCoordinate to set
+     * @param zCoordinate the zCoordinate to set as a double
      */
     public void setzCoordinate(final double zCoordinate) {
         this.zCoordinate = zCoordinate;
@@ -108,32 +102,74 @@ public class Sphere {
     /**
      * Returns the surface area of this Sphere.
      *
-     * @return surfaceArea
+     * @return surfaceArea as a double
      */
     public double getSurfaceArea() {
-        final double four = 4.0;
-        return four * Math.PI * Math.pow(radius, SQUARED);
+        final double multiplier = 4.0;
+        final double squared = 2;
+        return multiplier * Math.PI * Math.pow(radius, squared);
     }
 
     /**
      * Returns the volume of this Sphere.
      *
-     * @return volume
+     * @return volume as a double
      */
     public double getVolume() {
-        return DIVISOR * Math.PI * Math.pow(radius, CUBED);
+        final int cubed = 3;
+        final double divisor = 4.0 / 3.0;
+        return divisor * Math.PI * Math.pow(radius, cubed);
     }
 
-    /**
-     * Returns a String representation of this Sphere.
-     *
-     * @return toString
-     * @see Object#toString()
-     */
     @Override
     public String toString() {
-        return "Sphere [radius=" + getRadius() + ", xCoordinate=" + getxCoordinate()
-                + ", yCoordinate=" + getyCoordinate() + ", zCoordinate="
-                + getzCoordinate() + "]";
+        final StringBuilder sb;
+        sb = new StringBuilder("Sphere{");
+        sb.append("radius=").append(getRadius());
+        sb.append(", xCoordinate=").append(getxCoordinate());
+        sb.append(", yCoordinate=").append(getyCoordinate());
+        sb.append(", zCoordinate=").append(getzCoordinate());
+        sb.append('}');
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        Sphere sphere = (Sphere) object;
+
+        if (Double.compare(getRadius(), sphere.getRadius()) != 0) {
+            return false;
+        }
+        if (Double.compare(getxCoordinate(), sphere.getxCoordinate()) != 0) {
+            return false;
+        }
+        if (Double.compare(getyCoordinate(), sphere.getyCoordinate()) != 0) {
+            return false;
+        }
+        return Double.compare(getzCoordinate(), sphere.getzCoordinate()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(getRadius());
+        final int shiftLongToInt = 32;
+        result = (int) (temp ^ (temp >>> shiftLongToInt));
+        temp = Double.doubleToLongBits(getxCoordinate());
+        final int usefulPrime = 31;
+        result = usefulPrime * result + (int) (temp ^ (temp >>> shiftLongToInt));
+        temp = Double.doubleToLongBits(getyCoordinate());
+        result = usefulPrime * result + (int) (temp ^ (temp >>> shiftLongToInt));
+        temp = Double.doubleToLongBits(getzCoordinate());
+        result = usefulPrime * result + (int) (temp ^ (temp >>> shiftLongToInt));
+        return result;
     }
 }

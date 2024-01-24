@@ -6,7 +6,7 @@ package java101.geometry;
  * @author BCIT
  * @version 2024
  */
-public class Cone {
+public final class Cone {
     private static final double SQUARED = 2.0;
 
     private double radius;
@@ -15,8 +15,8 @@ public class Cone {
     /**
      * Constructs an object of type Cone.
      *
-     * @param radius of the cone
-     * @param height of the cone
+     * @param radius of the cone as a double
+     * @param height of the cone as a double
      */
     public Cone(final double radius, final double height) {
         this.radius = radius;
@@ -26,7 +26,7 @@ public class Cone {
     /**
      * Returns the radius for this Cone.
      *
-     * @return radius
+     * @return radius as a double
      */
     public double getRadius() {
         return radius;
@@ -35,7 +35,7 @@ public class Cone {
     /**
      * Sets the radius for this Cone.
      *
-     * @param radius the radius to set
+     * @param radius the radius to set as a double
      */
     public void setRadius(final double radius) {
         this.radius = radius;
@@ -44,7 +44,7 @@ public class Cone {
     /**
      * Returns the height for this Cone.
      *
-     * @return height
+     * @return height as a double
      */
     public double getHeight() {
         return height;
@@ -53,7 +53,7 @@ public class Cone {
     /**
      * Sets the height for this Cone.
      *
-     * @param height the height to set
+     * @param height the height to set as a double
      */
     public void setHeight(final double height) {
         this.height = height;
@@ -62,7 +62,7 @@ public class Cone {
     /**
      * Returns this Cone's volume.
      *
-     * @return volume
+     * @return volume as a double
      */
     public double getVolume() {
         final double third = 1.0 / 3.0;
@@ -72,7 +72,7 @@ public class Cone {
     /**
      * Returns this Cone's slant height.
      *
-     * @return slantHeight
+     * @return slantHeight as a double
      */
     public double getSlantHeight() {
         return Math.sqrt(Math.pow(radius, SQUARED) + Math.pow(height, SQUARED));
@@ -81,7 +81,7 @@ public class Cone {
     /**
      * Returns this Cone's surface area.
      *
-     * @return surfaceArea
+     * @return surfaceArea as a double
      */
     public double getSurfaceArea() {
         return Math.PI * Math.pow(radius, SQUARED)
@@ -89,15 +89,43 @@ public class Cone {
                 + Math.pow(height, SQUARED));
     }
 
-    /**
-     * Returns a String representation of this Cone.
-     *
-     * @return toString
-     * @see Object#toString()
-     */
     @Override
     public String toString() {
-        return "Cone [radius=" + getRadius() + ", height=" + getHeight() + "]";
+        final StringBuilder sb;
+        sb = new StringBuilder("Cone{");
+        sb.append("radius=").append(radius);
+        sb.append(", height=").append(height);
+        sb.append('}');
+        return sb.toString();
     }
 
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        Cone cone = (Cone) object;
+
+        if (Double.compare(getRadius(), cone.getRadius()) != 0) {
+            return false;
+        }
+        return Double.compare(getHeight(), cone.getHeight()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(getRadius());
+        final int shiftLongToInt = 32;
+        result = (int) (temp ^ (temp >>> shiftLongToInt));
+        temp = Double.doubleToLongBits(getHeight());
+        final int usefulPrime = 31;
+        result = usefulPrime * result + (int) (temp ^ (temp >>> shiftLongToInt));
+        return result;
+    }
 }

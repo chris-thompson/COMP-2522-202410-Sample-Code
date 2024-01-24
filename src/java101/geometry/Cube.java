@@ -6,10 +6,7 @@ package java101.geometry;
  * @author BCIT
  * @version 2024
  */
-public class Cube {
-    private static final double SQUARED = 2.0;
-    private static final double CUBED = 3.0;
-
+public final class Cube {
     private double edgeLength;
     private double xCoordinate;
     private double yCoordinate;
@@ -19,9 +16,9 @@ public class Cube {
      * Constructs an object of type Cube.
      *
      * @param edgeLength of the Cube
-     * @param x          the x Cartesian coordinate of the centre
-     * @param y          the y Cartesian coordinate of the centre
-     * @param z          the z Cartesian coordinate of the centre
+     * @param x the x Cartesian coordinate of the centre as a double
+     * @param y the y Cartesian coordinate of the centre as a double
+     * @param z the z Cartesian coordinate of the centre as a double
      */
     public Cube(final double edgeLength, final double x, final double y, final double z) {
         this.edgeLength = edgeLength;
@@ -33,7 +30,7 @@ public class Cube {
     /**
      * Returns the edgeLength for this Cube.
      *
-     * @return edgeLength
+     * @return edgeLength as a double
      */
     public double getEdgeLength() {
         return edgeLength;
@@ -42,7 +39,7 @@ public class Cube {
     /**
      * Sets the edgeLength for this Cube.
      *
-     * @param edgeLength the edgeLength to set
+     * @param edgeLength the edgeLength to set as a double
      */
     public void setEdgeLength(final double edgeLength) {
         this.edgeLength = edgeLength;
@@ -51,7 +48,7 @@ public class Cube {
     /**
      * Returns the xCoordinate for this Cube.
      *
-     * @return xCoordinate
+     * @return xCoordinate as a double
      */
     public double getxCoordinate() {
         return xCoordinate;
@@ -60,7 +57,7 @@ public class Cube {
     /**
      * Sets the xCoordinate for this Cube.
      *
-     * @param xCoordinate the xCoordinate to set
+     * @param xCoordinate the xCoordinate to set as a double
      */
     public void setxCoordinate(final double xCoordinate) {
         this.xCoordinate = xCoordinate;
@@ -69,7 +66,7 @@ public class Cube {
     /**
      * Returns the yCoordinate for this Cube.
      *
-     * @return yCoordinate
+     * @return yCoordinate as a double
      */
     public double getyCoordinate() {
         return yCoordinate;
@@ -78,7 +75,7 @@ public class Cube {
     /**
      * Sets the yCoordinate for this Cube.
      *
-     * @param yCoordinate the yCoordinate to set
+     * @param yCoordinate the yCoordinate to set as a double
      */
     public void setyCoordinate(final double yCoordinate) {
         this.yCoordinate = yCoordinate;
@@ -87,7 +84,7 @@ public class Cube {
     /**
      * Returns the zCoordinate for this Cube.
      *
-     * @return zCoordinate
+     * @return zCoordinate as a double
      */
     public double getzCoordinate() {
         return zCoordinate;
@@ -96,7 +93,7 @@ public class Cube {
     /**
      * Sets the zCoordinate for this Cube.
      *
-     * @param zCoordinate the zCoordinate to set
+     * @param zCoordinate the zCoordinate to set as a double
      */
     public void setzCoordinate(final double zCoordinate) {
         this.zCoordinate = zCoordinate;
@@ -105,26 +102,28 @@ public class Cube {
     /**
      * Returns this Cube's surface area.
      *
-     * @return surfaceArea
+     * @return surfaceArea as a double
      */
     public double getSurfaceArea() {
         final double six = 6.0;
-        return six * Math.pow(edgeLength, SQUARED);
+        final int squared = 2;
+        return six * Math.pow(edgeLength, squared);
     }
 
     /**
      * Returns this Cube's volume.
      *
-     * @return volume
+     * @return volume as a double
      */
     public double getVolume() {
-        return Math.pow(edgeLength, CUBED);
+        final int cubed = 3;
+        return Math.pow(edgeLength, cubed);
     }
 
     /**
      * Returns this Cube's face diagonal.
      *
-     * @return volume
+     * @return face diagonal as a double
      */
     public double getFaceDiagonal() {
         final int faceDiagonal = 2;
@@ -134,24 +133,62 @@ public class Cube {
     /**
      * Returns this Cube's space diagonal.
      *
-     * @return volume
+     * @return space diagonal as a double
      */
     public double getSpaceDiagonal() {
         final int spaceDiagonal = 3;
         return Math.sqrt(spaceDiagonal) * edgeLength;
     }
 
-    /**
-     * Returns a String representation of this Cube.
-     *
-     * @return toString
-     * @see Object#toString()
-     */
     @Override
     public String toString() {
-        return "Cube [edgeLength=" + getEdgeLength() + ", xCoordinate="
-                + getxCoordinate() + ", yCoordinate=" + getyCoordinate()
-                + ", zCoordinate=" + getzCoordinate() + "]";
+        final StringBuilder sb;
+        sb = new StringBuilder("Cube{");
+        sb.append("edgeLength=").append(getEdgeLength());
+        sb.append(", xCoordinate=").append(getxCoordinate());
+        sb.append(", yCoordinate=").append(getyCoordinate());
+        sb.append(", zCoordinate=").append(getzCoordinate());
+        sb.append('}');
+        return sb.toString();
     }
 
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        Cube cube = (Cube) object;
+
+        if (Double.compare(getEdgeLength(), cube.getEdgeLength()) != 0) {
+            return false;
+        }
+        if (Double.compare(getxCoordinate(), cube.getxCoordinate()) != 0) {
+            return false;
+        }
+        if (Double.compare(getyCoordinate(), cube.getyCoordinate()) != 0) {
+            return false;
+        }
+        return Double.compare(getzCoordinate(), cube.getzCoordinate()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(getEdgeLength());
+        final int shiftLongToInt = 32;
+        result = (int) (temp ^ (temp >>> shiftLongToInt));
+        temp = Double.doubleToLongBits(getxCoordinate());
+        final int usefulPrime = 31;
+        result = usefulPrime * result + (int) (temp ^ (temp >>> shiftLongToInt));
+        temp = Double.doubleToLongBits(getyCoordinate());
+        result = usefulPrime * result + (int) (temp ^ (temp >>> shiftLongToInt));
+        temp = Double.doubleToLongBits(getzCoordinate());
+        result = usefulPrime * result + (int) (temp ^ (temp >>> shiftLongToInt));
+        return result;
+    }
 }

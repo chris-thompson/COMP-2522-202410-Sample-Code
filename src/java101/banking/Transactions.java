@@ -23,28 +23,28 @@ public final class Transactions {
      * @param args command line arguments (unused)
      */
     public static void main(final String[] args) {
-        final Account acct1 = new Account("Grace Hopper", 72354, 102.56);
-        final Account acct2 = new Account("Edsgar Dijkstra", 69713, 40.00);
-        final Account acct3 = new Account("James Gosling", 93757, 759.32);
+        final Account accountOne = new Account("Grace Hopper", 72354, 102.56);
+        final Account accountTwo = new Account("Edsgar Dijkstra", 69713, 40.00);
+        final Account accountThree = new Account("James Gosling", 93757, 759.32);
 
         final double hopperDeposit = 25.85;
-        acct1.deposit(hopperDeposit);
+        accountOne.deposit(hopperDeposit);
 
-        final double dijkstraBalance = acct2.deposit(500.00);
+        final double dijkstraBalance = accountTwo.deposit(500.00);
         System.out.println("Dijkstra balance after deposit: "
                 + dijkstraBalance);
 
         final double dijkstraWithdrawal = 430.75;
         System.out.println("Dijkstra balance after withdrawal: "
-                + acct2.withdraw(dijkstraWithdrawal, WITHDRAWAL_FEE));
+                + accountTwo.withdraw(dijkstraWithdrawal, WITHDRAWAL_FEE));
 
-        acct1.addInterest();
-        acct2.addInterest();
-        acct3.addInterest();
+        double interestAccrued = accountOne.addInterest();
+        interestAccrued += accountTwo.addInterest();
+        interestAccrued += accountThree.addInterest();
 
-        System.out.println();
-        System.out.println(acct1);
-        System.out.println(acct2);
-        System.out.println(acct3);
+        System.out.println(interestAccrued);
+        System.out.println(accountOne);
+        System.out.println(accountTwo);
+        System.out.println(accountThree);
     }
 }

@@ -8,7 +8,7 @@ import java.util.Random;
  * @author BCIT
  * @version 2024
  */
-public class Die {
+public final class Die {
 
     /**
      * The number of sides.
@@ -19,20 +19,10 @@ public class Die {
     private int faceValue;
 
     /**
-     * Constructs a Die object.
+     * Constructs a Die object. A new Die has a face value of 1.
      */
     public Die() {
         this.faceValue = 1;
-    }
-
-    /**
-     * Rolls this Die and returns the result.
-     *
-     * @return faceValue as an int
-     */
-    public int roll() {
-        this.faceValue = RANDOM_NUMBER_GENERATOR.nextInt(SIDES) + 1;
-        return this.faceValue;
     }
 
     /**
@@ -45,7 +35,8 @@ public class Die {
     }
 
     /**
-     * Sets the face value of this Die to the specified value.
+     * Sets the face value of this Die to the specified value. If the value is
+     * not valid, the face value will not be changed.
      *
      * @param value an int
      */
@@ -56,6 +47,17 @@ public class Die {
     }
 
     /**
+     * Rolls this Die and returns the result.
+     *
+     * @return faceValue as an int
+     */
+    public int roll() {
+        this.faceValue = RANDOM_NUMBER_GENERATOR.nextInt(SIDES) + 1;
+        return this.faceValue;
+    }
+
+
+    /**
      * Returns a String representation of this Die.
      *
      * @return toString description
@@ -63,6 +65,25 @@ public class Die {
     @Override
     public String toString() {
         return "Die{" + "faceValue=" + getFaceValue() + "}";
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        Die die = (Die) object;
+
+        return getFaceValue() == die.getFaceValue();
+    }
+
+    @Override
+    public int hashCode() {
+        return getFaceValue();
     }
 
     /**

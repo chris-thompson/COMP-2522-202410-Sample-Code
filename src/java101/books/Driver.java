@@ -19,7 +19,8 @@ public final class Driver {
         final Book myBook = new Book();
         System.out.println(myBook);
 
-        final Book anotherBook = new Book("Homer", "Iliad", 700);
+        final int enormousNovelLength = 700;
+        final Book anotherBook = new Book("Homer", "Iliad", enormousNovelLength);
         System.out.println(anotherBook);
 
     }
