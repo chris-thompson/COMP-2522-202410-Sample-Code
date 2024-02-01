@@ -133,7 +133,7 @@ public final class RandomWalker {
         final StringBuilder sb;
         sb = new StringBuilder("RandomWalker{");
         sb.append("xCoordinate=").append(getxCoordinate());
-        sb.append(", yCoordinate=").append(getxCoordinate());
+        sb.append(", yCoordinate=").append(getyCoordinate());
         sb.append(", maximumStepsToTake=").append(maximumStepsToTake);
         sb.append(", currentStepsTaken=").append(currentStepsTaken);
         sb.append(", boundary=").append(boundary);
