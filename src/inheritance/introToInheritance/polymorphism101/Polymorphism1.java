@@ -49,6 +49,7 @@ class A {
  * B is a subclass of A.
  */
 class B extends A {
+    @Override
     public void foo() {
         System.out.println("B foo()");
     }
