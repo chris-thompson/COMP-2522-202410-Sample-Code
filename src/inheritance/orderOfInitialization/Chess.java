@@ -19,7 +19,7 @@ class BoardGame extends Game {
  * that the calls to super go all the way up the hierarchy.
  *
  * @author BCIT
- * @version 2020
+ * @version 2024
  */
 public class Chess extends BoardGame {
 
