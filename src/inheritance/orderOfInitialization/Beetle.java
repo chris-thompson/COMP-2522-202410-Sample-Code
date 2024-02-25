@@ -69,7 +69,7 @@ public class Beetle extends Insect {
         Beetle b = new Beetle();
         Insect i = new Insect();
         System.out.println(b);
-        System.out.println();
+        System.out.println(i);
     }
 
 }
