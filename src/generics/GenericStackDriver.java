@@ -1,26 +1,26 @@
 package generics;
 
 /**
- * Tests the Stack.
+ * Tests the GenericStack.
  *
  * @author BCIT
  * @version 2024
  */
-public class StackTest {
+public class GenericStackDriver {
 
     private final double[] doubleElements = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6};
     private final int[] integerElements = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
-    private Stack<Double> doubleStack;
-    private Stack<Integer> integerStack;
+    private GenericStack<Double> doubleGenericStack;
+    private GenericStack<Integer> integerGenericStack;
 
     /**
-     * Tests the Stack methods.
+     * Tests the GenericStack methods.
      */
     public void testStacks() {
         final int stackSize = 10;
-        doubleStack = new Stack<>(stackSize);
-        integerStack = new Stack<>(stackSize);
+        doubleGenericStack = new GenericStack<>(stackSize);
+        integerGenericStack = new GenericStack<>(stackSize);
 
         testPushDouble();
         testPopDouble();
@@ -29,40 +29,40 @@ public class StackTest {
     }
 
     /**
-     * Tests the Stack push method.
+     * Tests the GenericStack push method.
      */
     public void testPushDouble() {
         try {
             System.out.println("\nPushing elements onto doubleStack");
             for (double element : doubleElements) {
                 System.out.printf("%.1f ", element);
-                doubleStack.push(element);
+                doubleGenericStack.push(element);
             } // end for
-        } catch (FullStackException fullStackException) {
+        } catch (FullGenericStackException fullGenericStackException) {
             System.err.println();
-            fullStackException.printStackTrace();
+            fullGenericStackException.printStackTrace();
         }
     }
 
     /**
-     * Tests the Stack pop method.
+     * Tests the GenericStack pop method.
      */
     public void testPopDouble() {
         try {
             System.out.println("\nPopping elements from doubleStack");
             double popValue;
             while (true) { // Terrible idea!
-                popValue = doubleStack.pop();
+                popValue = doubleGenericStack.pop();
                 System.out.printf("%.1f ", popValue);
             }
-        } catch (EmptyStackException emptyStackException) {
+        } catch (EmptyGenericStackException emptyGenericStackException) {
             System.err.println();
-            emptyStackException.printStackTrace();
+            emptyGenericStackException.printStackTrace();
         }
     }
 
     /**
-     * Tests the Stack push method.
+     * Tests the GenericStack push method.
      */
     public void testPushInteger() {
         try {
@@ -70,28 +70,28 @@ public class StackTest {
 
             for (int element : integerElements) {
                 System.out.printf("%d ", element);
-                integerStack.push(element);
+                integerGenericStack.push(element);
             }
-        } catch (FullStackException fullStackException) {
+        } catch (FullGenericStackException fullGenericStackException) {
             System.err.println();
-            fullStackException.printStackTrace();
+            fullGenericStackException.printStackTrace();
         }
     }
 
     /**
-     * Tests the Stack pop method.
+     * Tests the GenericStack pop method.
      */
     public void testPopInteger() {
         try {
             System.out.println("\nPopping elements from integerStack");
             int popValue;
             while (true) {
-                popValue = integerStack.pop();
+                popValue = integerGenericStack.pop();
                 System.out.printf("%d ", popValue);
             }
-        } catch (EmptyStackException emptyStackException) {
+        } catch (EmptyGenericStackException emptyGenericStackException) {
             System.err.println();
-            emptyStackException.printStackTrace();
+            emptyGenericStackException.printStackTrace();
         }
     }
 
@@ -100,7 +100,7 @@ public class StackTest {
      * @param args unused
      */
     public static void main(final String[] args) {
-        StackTest application = new StackTest();
+        GenericStackDriver application = new GenericStackDriver();
         application.testStacks();
     }
 }
