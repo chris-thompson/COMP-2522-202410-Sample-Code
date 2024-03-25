@@ -19,7 +19,7 @@ public final class Serialization {
      */
     public static void main(final String[] args) {
         final int age = 30;
-        Person person = new Person("John Doe", age);
+        Person person = new Person("Taro Tanaka", age);
         String filename = "person.ser";
 
         // Serialize the person object to a file
