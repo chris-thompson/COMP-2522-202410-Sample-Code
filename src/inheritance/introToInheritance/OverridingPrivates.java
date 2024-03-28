@@ -1,7 +1,7 @@
 package inheritance.introToInheritance;
 
 class Animal {
-    private final void eat() {
+    private void eat() {
         System.out.println("I'm an animal and I'm eating");
     }
     private void move() {
@@ -10,7 +10,7 @@ class Animal {
 }
 
 class Bird extends Animal {
-    private final void eat() {
+    private void eat() {
         System.out.println("I'm a bird and I'm eating");
     }
     private void move() {

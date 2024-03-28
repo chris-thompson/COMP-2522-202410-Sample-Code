@@ -58,7 +58,7 @@ public class Beetle extends Insect {
         staticPrinter("j = " + j);
     }
 
-    private static final int x2 = staticPrinter("static Beetle.x2 initialized");
+    private static final int X_2 = staticPrinter("static Beetle.x2 initialized");
 
     /**
      * Drives the program.
