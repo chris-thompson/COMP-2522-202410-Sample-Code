@@ -3,51 +3,51 @@ package dataStructures.stack;
 
 /**
  * StackComposition implements a stack by using a list and only exposing
- * stack behaviours.  Neat!
+ * stack behaviours. Neat!
  *
  * @author BCIT
  * @version 2024
  */
 public class StackComposition {
 
-    private final SimpleDoublyLinkedList stackSimpleDoublyLinkedList;
+    private SimpleDoublyLinkedList stackList;
 
     /**
-     * Constructs an object of type StackComposition.
+     * Constructs an object of type List.
      */
     public StackComposition() {
-        stackSimpleDoublyLinkedList = new SimpleDoublyLinkedList();
+        stackList = new SimpleDoublyLinkedList();
     }
 
     /**
-     * Pushes the argument onto this StackComposition.
-     * @param object the datum to insert
+     * Pushes the argument onto this Stack.
+     * @param object to add
      */
     public void push(final Object object) {
-        stackSimpleDoublyLinkedList.insertAtFront(object);
+        stackList.insertAtFront(object);
     }
 
     /**
-     * Pops and returns the top of the StackComposition.
-     * @return top of the Stack as an Object
-     * @throws EmptySimpleDoublyLinkedListException if the StackComposition is empty
+     * Pops and returns the top of the Stack.
+     * @return top of the Stack
+     * @throws EmptySimpleDoublyLinkedListException if the Stack is empty.
      */
     public Object pop() throws EmptySimpleDoublyLinkedListException {
-        return stackSimpleDoublyLinkedList.removeFromFront();
+        return stackList.removeFromFront();
     }
 
     /**
-     * Returns true if the StackComposition is empty.
+     * Returns true if the Stack is empty.
      * @return true if empty, else false
      */
     public boolean isEmpty() {
-        return stackSimpleDoublyLinkedList.isEmpty();
+        return stackList.isEmpty();
     }
 
     /**
-     * Prints the StackComposition.
+     * Prints the Stack.
      */
     public void print() {
-        stackSimpleDoublyLinkedList.print();
+        stackList.print();
     }
 }

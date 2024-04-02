@@ -2,10 +2,10 @@ package dataStructures.stack;
 
 /**
  * StackInheritance implements a stack by extending the
- * SimpleDoublyLinkedList and only exposing stack behaviours.  Neat!
+ * List and only exposing stack behaviours.  Neat!
  *
  * @author BCIT
- * @version 2024
+ * @version 2019
  */
 public class StackInheritance extends SimpleDoublyLinkedList {
 
@@ -17,17 +17,17 @@ public class StackInheritance extends SimpleDoublyLinkedList {
     }
 
     /**
-     * Pushes the argument onto this StackInheritance.
-     * @param object the datum to insert
+     * Pushes the argument onto this Stack.
+     * @param object to add
      */
     public void push(final Object object) {
         insertAtFront(object);
     }
 
     /**
-     * Pops and returns the top of the StackInheritance.
-     * @return top of the Stack as an Object
-     * @throws EmptySimpleDoublyLinkedListException if the Stack is empty
+     * Pops and returns the top of the Stack.
+     * @return top of the Stack
+     * @throws EmptySimpleDoublyLinkedListException if the Stack is empty.
      */
     public Object pop() throws EmptySimpleDoublyLinkedListException {
         return removeFromFront();

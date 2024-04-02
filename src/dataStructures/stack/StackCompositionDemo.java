@@ -25,8 +25,7 @@ public final class StackCompositionDemo {
         stack.print();
         stack.push(1);
         stack.print();
-        final int usefulInteger = 2;
-        stack.push(usefulInteger);
+        stack.push(5);
         stack.print();
 
         try {
@@ -35,8 +34,8 @@ public final class StackCompositionDemo {
                 System.out.printf("%s popped%n", removedObject);
                 stack.print();
             }
-        } catch (EmptySimpleDoublyLinkedListException emptySimpleDoublyLinkedListException) {
-            System.out.printf("Caught an exception: %s", emptySimpleDoublyLinkedListException);
+        } catch (EmptySimpleDoublyLinkedListException emptyListException) {
+            emptyListException.printStackTrace();
         }
     }
 }
