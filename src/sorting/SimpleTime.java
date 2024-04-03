@@ -6,7 +6,7 @@ package sorting;
  * @author BCIT
  * @version 2024
  */
-public class Time {
+public class SimpleTime {
     private int hour;
     private int minute;
     private int second;
@@ -14,7 +14,7 @@ public class Time {
     /**
      * Constructs an object of type Time.
      */
-    public Time() {
+    public SimpleTime() {
         this(0, 0, 0);
     }
 
@@ -22,7 +22,7 @@ public class Time {
      * Constructs an object of type Time.
      * @param h hours an int
      */
-    public Time(final int h) {
+    public SimpleTime(final int h) {
         this(h, 0, 0);
     }
 
@@ -31,7 +31,7 @@ public class Time {
      * @param h hours an int
      * @param m minutes an int
      */
-    public Time(final int h, final int m) {
+    public SimpleTime(final int h, final int m) {
         this(h, m, 0);
     }
 
@@ -41,7 +41,7 @@ public class Time {
      * @param m minutes an int
      * @param s seconds an int
      */
-    public Time(final int h, final int m, final int s) {
+    public SimpleTime(final int h, final int m, final int s) {
         setTime(h, m, s);
     }
 

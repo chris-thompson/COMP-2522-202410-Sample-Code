@@ -14,11 +14,11 @@ public class Sort2 {
      * Prints the elements in a sorted list using a Comparator.
      */
     public void printElements() {
-        java.util.List<Time> list = new ArrayList<>();
-        list.add(new Time(6, 24, 34));
-        list.add(new Time(6, 5, 34));
-        list.add(new Time(12, 14, 58));
-        list.add(new Time(6, 24, 22));
+        java.util.List<SimpleTime> list = new ArrayList<>();
+        list.add(new SimpleTime(6, 24, 34));
+        list.add(new SimpleTime(6, 5, 34));
+        list.add(new SimpleTime(12, 14, 58));
+        list.add(new SimpleTime(6, 24, 22));
 
         System.out.printf("Unsorted array elements:%n%s%n", list);
         list.sort(new TimeComparator());

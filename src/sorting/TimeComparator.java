@@ -8,26 +8,26 @@ import java.util.Comparator;
  * @author BCIT
  * @version 2024
  */
-public class TimeComparator implements Comparator<Time> {
+public class TimeComparator implements Comparator<SimpleTime> {
 
     /**
      * Compares the two Time2 arguments.
-     * @param time1 a Time2
-     * @param time2 a Time2
+     * @param simpleTime1 a Time2
+     * @param simpleTime2 a Time2
      * @return an int where 0 means they are the same
      *                      - means time1 < time2
      *                      + means time1 > time2
      */
     @Override
-    public int compare(final Time time1, final Time time2) {
-        int hourCompare = time1.getHour() - time2.getHour();
+    public int compare(final SimpleTime simpleTime1, final SimpleTime simpleTime2) {
+        int hourCompare = simpleTime1.getHour() - simpleTime2.getHour();
         if (hourCompare != 0) {
             return hourCompare;
         }
-        int minuteCompare = time1.getMinute() - time2.getMinute();
+        int minuteCompare = simpleTime1.getMinute() - simpleTime2.getMinute();
         if (minuteCompare != 0) {
             return minuteCompare;
         }
-        return time1.getSecond() - time2.getSecond();
+        return simpleTime1.getSecond() - simpleTime2.getSecond();
     }
 }
